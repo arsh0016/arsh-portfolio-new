@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './SkillsSection.css';
 
 const SkillsSection = ({ skills }) => {
-  const [hoveredSkill, setHoveredSkill] = useState(null);
   const [progressWidth, setProgressWidth] = useState({}); 
 
   useEffect(() => {
@@ -14,23 +13,21 @@ const SkillsSection = ({ skills }) => {
   }, [skills]);
 
   const handleMouseEnter = (skillName) => {
-    setHoveredSkill(skillName);
-
     setProgressWidth((prev) => ({
       ...prev,
-      [skillName]: 0,
+      [skillName]: 0,  // Set progress to 0 when mouse enters
     }));
 
     setTimeout(() => {
       setProgressWidth((prev) => ({
         ...prev,
-        [skillName]: skills.find(skill => skill.name === skillName).percent,
+        [skillName]: skills.find(skill => skill.name === skillName).percent,  // Restore progress after a delay
       }));
     }, 100); 
   };
 
   const handleMouseLeave = () => {
-    setHoveredSkill(null);
+    // No need for hoveredSkill, handle leaving by not setting any state
   };
 
   return (
