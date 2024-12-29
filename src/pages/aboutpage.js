@@ -31,7 +31,8 @@ const AboutPage = () => {
   useEffect(() => {
     const sortedSkills = [...skillsList].sort((a, b) => b.percent - a.percent);
     setSkillsList(sortedSkills);
-  }, []); 
+  }, [skillsList]);  // skillsList added as dependency
+  
 
   return (
     <div className="about-page-container">

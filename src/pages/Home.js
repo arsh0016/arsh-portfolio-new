@@ -1,4 +1,4 @@
-import React, { useMemo, useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect } from 'react';  // Removed useMemo since it's not used
 import HeroSection from '../components/HeroSection';
 import SkillsSection from '../components/SkillsSection';
 import FeaturedProjects from '../components/FeaturedProjects';
