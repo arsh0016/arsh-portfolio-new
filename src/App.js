@@ -1,4 +1,4 @@
-import React, { Suspense, useMemo } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -6,34 +6,23 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import './App.css';
 
-const Home = React.lazy(() => import('./pages/Home'));
-const AboutPage = React.lazy(() => import('./pages/aboutpage'));
-const ProjectsPage = React.lazy(() => import('./pages/projectspage'));
-const ProjectDetailPage = React.lazy(() => import('./pages/ProjectDetailPage'));
-const ContactUsPage = React.lazy(() => import('./pages/ContactUsPage'));
+import Home from './pages/Home';
+import AboutPage from './pages/aboutpage';
+import ProjectsPage from './pages/projectspage';
+import ProjectDetailPage from './pages/ProjectDetailPage';
+import ContactUsPage from './pages/ContactUsPage';
 
 const App = () => {
-  const routes = useMemo(
-    () => [
-      { path: '/', component: Home },
-      { path: '/about', component: AboutPage },
-      { path: '/projects', component: ProjectsPage },
-      { path: '/contact', component: ContactUsPage },
-      { path: '/projects/:id', component: ProjectDetailPage },
-    ],
-    []
-  );
-
   return (
     <Router>
       <Navbar />
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          {routes.map(({ path, component: Component }) => (
-            <Route key={path} path={path} element={<Component />} />
-          ))}
-        </Routes>
-      </Suspense>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/projects/:id" element={<ProjectDetailPage />} />
+        <Route path="/contact" element={<ContactUsPage />} />
+      </Routes>
       <Footer />
     </Router>
   );
