@@ -28,8 +28,8 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg custom-navbar ">
-      <div className="container-fluid">
-        <Link className="navbar-brand brand" to="/">My Portfolio</Link>
+      <div className="container-fluid p-2">
+        <Link className="navbar-brand brand" to="/">Portfolio</Link>
         <button
           className="navbar-toggler custom-toggler"
           type="button"
