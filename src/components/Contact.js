@@ -16,8 +16,8 @@ const Contact = () => {
     city: 'Springfield',
     state: 'Illinois',
     postalCode: '62701',
-    email: 'contact@example.com',
-    phone: '123-456-7890',
+    email: 'kaurarshpreet1054@gmail.com',
+    phone: '+13437773574',
     socialLinks: [
       { platform: 'facebook', url: 'https://facebook.com' },
       { platform: 'twitter', url: 'https://twitter.com' },
